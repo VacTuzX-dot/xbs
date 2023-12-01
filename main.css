@@ -6,9 +6,10 @@
   font-family: "Kanit", sans-serif;
 }
 body {
-  transition: .3s ease-out;
+  transition: 0.3s ease-out;
 }
-.fb,.ig {
+.fb,
+.ig {
   letter-spacing: 3px;
 }
 a {
@@ -32,21 +33,28 @@ a:hover {
 span:hover {
   color: red;
 }
-#mdimgpart {
-  width: 40%;
+#mdpart {
+  margin: 0;
+  padding: 10px;
 }
-#mdvideopart {
-  width: 45vw;
+#mdimgpart {
+  width: 50%;
   height: auto;
 }
-
+#mdtextpart {
+  width: 70%;
+}
+#mdvideopart {
+  width: 70vw;
+  height: auto;
+}
 #mdimgpart img {
-  padding: 20px;
+  padding: 5px;
   max-width: 100%;
   height: auto;
 }
 .lead {
-  font-size: 25px;
+  font-size: 23px;
 }
 p {
   font-size: 22px;
@@ -55,7 +63,6 @@ a {
   font-size: 22px;
 }
 #food {
-  
   -webkit-text-stroke: 0.5px black;
 }
 .bd-mode-toggle {

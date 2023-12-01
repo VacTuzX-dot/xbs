@@ -1,9 +1,9 @@
 class footers extends HTMLElement {
-    constructor() {
-      super();
-    }
-    connectedCallback() {
-      this.innerHTML = `
+  constructor() {
+    super();
+  }
+  connectedCallback() {
+    this.innerHTML = `
       <div class="container">
         <footer
         class="row row-cols-1 row-cols-sm-2 row-cols-md-2 py-2 my-2 border-top"
@@ -26,17 +26,17 @@ class footers extends HTMLElement {
             </ul>
           </div>
         </footer>
-      </div> `; 
-    }
+      </div> `;
+  }
 }
 customElements.define("foot-comp", footers);
 // dm
 class dm extends HTMLElement {
-    constructor() {
-      super();
-    }
-    connectedCallback() {
-      this.innerHTML = `
+  constructor() {
+    super();
+  }
+  connectedCallback() {
+    this.innerHTML = `
       <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -88,7 +88,154 @@ class dm extends HTMLElement {
         </li>
       </ul>
     </div>
- `; 
-    }
+ `;
+  }
 }
 customElements.define("dm-comp", dm);
+
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+const containerx = document.querySelector(".containerx");
+let grid = [15, 15];
+let boxstyle = "";
+const name = "+++++++++++++++";
+const color = 0;
+const animationStartFrom = 1;
+let k = 0;
+for (let i = 0; i < grid[1]; i++) {
+  boxstyle += "auto ";
+  for (let j = 0; j < grid[0]; j++) {
+    if (i == 6 && j > 3 && k < name.length) {
+      containerx.innerHTML += `<div class="main">
+<div class="box top"></div>
+<div class="box right"></div>
+<div class="box bottom"></div>
+<div class="box left"></div>
+<div class="box front">${name[k]}</div>
+<div class="box back"></div>
+</div>`;
+      k++;
+    } else {
+      containerx.innerHTML += `<div class="main">
+<div class="box top"></div>
+<div class="box right"></div>
+<div class="box bottom"></div>
+<div class="box left"></div>
+<div class="box front">${name[k]}</div>
+<div class="box back"></div>
+</div>`;
+    }
+  }
+}
+containerx.style.gridTemplateColumns = boxstyle;
+let timeline = gsap.timeline({
+  yoyo: true,
+  repeat: -1,
+  grid: [grid[0], grid[1]],
+});
+let timeline2 = gsap.timeline({
+  yoyo: true,
+  repeat: -1,
+  grid: [grid[0], grid[1]],
+  repeatedealay: 1,
+});
+let timeline3 = gsap.timeline({
+  yoyo: true,
+  repeat: -1,
+  grid: [grid[0], grid[1]],
+  repeatedealay: 1,
+});
+let timeline4 = gsap.timeline({
+  yoyo: true,
+  repeat: -1,
+  grid: [grid[0], grid[1]],
+  repeatedealay: 1,
+});
+timeline
+  .from(".main", {
+    duration: 1,
+    x: -30,
+    stagger: { from: animationStartFrom, amount: 1.5 },
+  })
+  .to(".main", {
+    duration: 1,
+    y: 30,
+    stagger: { from: animationStartFrom, amount: 1.5 },
+  })
+  .to(".main", {
+    duration: 1,
+    x: 30,
+    stagger: { from: animationStartFrom, amount: 1.5 },
+  })
+  .to(".main", {
+    duration: 1,
+    y: -30,
+    stagger: { from: animationStartFrom, amount: 1.5 },
+  });
+timeline2.to(".front", {
+  duration: 4,
+  background: `hsl(${color}deg, 100%, 50%)`,
+  stagger: {
+    from: animationStartFrom,
+    amount: 1.5,
+  },
+});
+
+timeline3.to(".right", {
+  duration: 1,
+  background: `hsl(${color}deg, 100%, 20%)`,
+  stagger: {
+    from: animationStartFrom,
+    amount: 1.5,
+  },
+});
+
+timeline4.to(".top", {
+  duration: 1,
+  background: `hsl(${color}deg, 100%, 30%)`,
+  stagger: {
+    from: animationStartFrom,
+    amount: 1.5,
+  },
+});
+
+const mainBoxes = document.querySelectorAll(".front");
+
+let posX = 0;
+let posY = 0;
+document.body.addEventListener("mousemove", (event) => {
+  posX = event.pageX;
+  posY = event.pageY;
+  mainBoxes.forEach((elem) => {
+    if (
+      posX > elem.getBoundingClientRect().left - elem.clientWidth * 0.75 &&
+      posX < elem.getBoundingClientRect().left + elem.clientWidth &&
+      posY > elem.getBoundingClientRect().top - elem.clientHeight * 0.75 &&
+      posY < elem.getBoundingClientRect().top + elem.clientHeight
+    ) {
+      gsap.to(elem.parentElement, {
+        scale: 0.75,
+      });
+      gsap.to(elem, {
+        color: "brown",
+      });
+    } else {
+      gsap.to(elem.parentElement, {
+        scale: 1,
+      });
+      gsap.to(elem, {
+        color: "white",
+      });
+    }
+  });
+});
+
+document.body.addEventListener("mouseout", (event) => {
+  mainBoxes.forEach((elem) => {
+    gsap.to(elem.parentElement, {
+      scale: 1,
+    });
+    gsap.to(elem, {
+      color: "white",
+    });
+  });
+});
