@@ -102,117 +102,40 @@
       width: 3rem;
       height: 3rem;
     }
-
-    :root {
-      --box: 150px; /* change cube size */
-      ---box: -150px; /* keep Subtraction change cube size */
-      --boxhalf: 75px; /* change cube size */
-      ---boxhalf: -75px; /* keep Subtraction change cube size */
-      --colorWheel: 20deg; /*change cube color*/
-    }
-    .mainConteinerx {
-      
-      -webkit-text-stroke: 2px black;
-      z-index: -999;
-      cursor: default;
-      transform-style: preserve-3d;
-      transform: translate(-50%, -50%) rotateX(50deg) rotateY(0deg)
-        rotateZ(30deg);
-      position: absolute;
-      top: 50%;
-      left: 50%;
-    }
-    .containerx {
-      width: max-content;
-      height: max-content;
-      display: grid;
-      grid-template-columns: auto auto auto auto auto auto;
-      justify-content: center;
-      align-items: center;
-      margin: 0 auto;
-      transform-style: preserve-3d;
-      gap: 1px;
-    }
-
-    .main {
-      width: var(--box);
-      height: var(--box);
-      transform-style: preserve-3d;
-      /*   transform: rotateX(90deg); */
-    }
-
-    .main::after {
-      content: "";
-      width: 100%;
-      position: absolute;
-      height: 100%;
-      background: linear-gradient(90deg, black, transparent);
-      transform: translateZ(var(---boxhalf)) translateX(100%);
-      filter: blur(5px);
-    }
-
-    .box {
-      perspective: 500px;
-      width: var(--box);
-      height: var(--box);
-      background: rgba(0, 0, 0, 0.2);
-      position: absolute;
-      transform-style: preserve-3d;
-      backface-visibility: visible;
-      -web-backface-visibility: visible;
-      color: #fff;
-      display: grid;
-      place-items: center;
-    }
-
-    .top {
-      transform: translateY(var(--boxhalf)) rotateX(90deg);
-      background: hsl(var(--colorWheel), 100%, 30%);
-    }
-
-    .right {
-      transform: translateX(var(--boxhalf)) rotateY(90deg);
-      background: hsl(var(--colorWheel), 100%, 20%);
-    }
-
-    .bottom {
-      transform: translateY(var(---boxhalf)) rotateX(-90deg);
-      background: hsl(var(--colorWheel), 100%, 30%);
-    }
-
-    .left {
-      transform: translateX(-var(---boxhalf)) rotateY(-90deg);
-      background: hsl(var(--colorWheel), 100%, 35%);
-    }
-
-    .front {
-      transform: translateZ(var(--boxhalf));
-      background: hsl(var(--colorWheel), 100%, 50%);
-      font-size: 120px;
-      font-family: fantasy;
-      color: #ffffff;
-      font-weight: 400;
-    }
-
-    .back {
-      transform: translateZ(var(---boxhalf)) rotateY(180deg);
-      background: hsl(var(--colorWheel), 100%, 20%);
-    }
     #food {
       height: 70vh;
     }
+    #exg {
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
     #cfg {
-      padding-top: 15%;
--webkit-text-stroke: 1px rgba(255, 255, 255, 0.7);
-      border-radius: 8px;
-      background: linear-gradient(360deg, rgba(255, 255, 255, 0.5), transparent);
+      font-size: 5rem;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      color: black;
+      -webkit-text-stroke: 0.5px white;
     }
     #exp {
       font-size: 30px;
       width: 50%;
       height: 15%;
-    } #mainexp {
-      box-shadow: 0 0 50px rgba(0, 0, 0, 1);
+    }
+    #m-ainexp {
+      margin: 0;
+      padding: 0;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.658);
+    }
+    .xbox {
+      border-radius: 12px;
+      background-color: rgb(255, 255, 255 / 5%);
+      box-shadow: 0 0 5px rgb(0, 0, 0 / 15%);
+      backdrop-filter: blur(7px);
     }
   </style>
   <body class="">
@@ -338,18 +261,30 @@
         </div>
       </header>
     </div>
-    <div class="animate__animated animate__fadeInUp overflow-hidden p-3 p-md-5 m-md-3  text-center bg-body" id="mainexp">
-      <div class="p-lg-6 mx-atuo my-5" id="food" >
-        <div class="col-md-5 p-lg-5 mx-auto my-5 text-shadow-2" >
-          <h1 id="cfg" class="display-3 font-weight-normal text-dark">
-            ChiangMai Foodie Guide
-          </h1>
-          <a href="#mainrlly" rel="noopener noreferrer">
-            <button id="exp" class="btn btn-light" >Explorer</button>
-          </a>
-        </div>
-        <div class="mainConteinerx">
-          <div class="containerx"></div>
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <div
+      class="animate__animated animate__fadeInDown overflow-hidden p-md-3 m-md-3 text-center bg-body"
+      id="mainexp"
+    >
+      <div class="p-lg-2 mx-atuo my-5" id="food">
+        <div class="parallax-container">
+          <img
+            class="parallax"
+            src="https://www.thediscoveriesof.com/wp-content/uploads/2016/11/chiang-mai-night-market-.jpg"
+            alt=""
+          />
+          <div class="teaser">
+            <div
+              class="content col-md-5 p-lg-5 text-shadow-3 xbox"
+              style="transform: translate(0%, 60%)"
+              id="exg"
+            >
+              <h1 id="cfg">CNX FG</h1>
+              <a href="#mainrlly" rel="noopener noreferrer">
+                <button id="exp" class="btn btn-light">Explorer</button>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -394,13 +329,11 @@
         </h2>
 
         <div class="row row-cols-1 row-cols-lg-2 align-items-stretch g-4 py-5">
-          <div
-            class="col animate__animated animate__fadeInLeftBig animate__delay-1s"
-          >
+          <div class="col animate__animated animate__fadeIn animate__delay-1s">
             <div
               class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
               style="
-                background-image: url('https://drive.google.com/uc?id=1FxG913PyzFX402PzDipWi6LUgh1EDet-');
+                background-image: url('https://www.dropbox.com/scl/fi/5y8iz1nu4kd5lu7wo54gz/IMG_3087.png?rlkey=zdhor1l5gr3zwhhvf0dq63y9o&raw=1');
               "
             >
               <div
@@ -427,13 +360,11 @@
               </div>
             </div>
           </div>
-          <div
-            class="col animate__animated animate__fadeInRightBig animate__delay-1s"
-          >
+          <div class="col animate__animated animate__fadeIn animate__delay-1s">
             <div
               class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
               style="
-                background-image: url('https://drive.google.com/uc?id=1lq0woz1UzrJrUrHrkJ85IlBL459r471R');
+                background-image: url('https://www.dropbox.com/scl/fi/2mqanm6i1y6bmxltuio64/IMG_6619.png?rlkey=1pgkeemo5luopd6ezwo45rdwn&raw=1');
               "
             >
               <div
@@ -462,16 +393,34 @@
           </div>
         </div>
       </div>
-      <div class=" container px-4 py-5">
-        <h2 class="pb-2 border-bottom ">We Come From <a class="display-6" href="https://www.cmtc.ac.th" target="_blank" rel="noopener noreferrer">CMTC</a></h2>
-          <div class="col">
-            <div class="row row-cols-1 row-cols-sm-1 animate__animated animate__zoomInDown animate__delay-1s">
-              <div class="col d-flex flex-column gap-3 ">
-                <div
-                  class="d-inline-flex align-items-center justify-content-center text-bg-dark fs-4 rounded-3"
-                >
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3776.9615411197415!2d98.97554799999999!3d18.799867199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da3a9a71d80adf%3A0xe41f657fc5052416!2z4Lin4Li04LiX4Lii4Liy4Lil4Lix4Lii4LmA4LiX4LiE4LiZ4Li04LiE4LmA4LiK4Li14Lii4LiH4LmD4Lir4Lih4LmI!5e0!3m2!1sth!2sth!4v1701429207030!5m2!1sth!2sth" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+      <div class="container px-4 py-5">
+        <h2 class="pb-2 border-bottom">
+          We Come From
+          <a
+            class="display-6"
+            href="https://www.cmtc.ac.th"
+            target="_blank"
+            rel="noopener noreferrer"
+            >CMTC</a
+          >
+        </h2>
+        <div class="col">
+          <div
+            class="row row-cols-1 row-cols-sm-1 animate__animated animate__zoomInDown animate__delay-1s"
+          >
+            <div class="col d-flex flex-column gap-3">
+              <div
+                class="d-inline-flex align-items-center justify-content-center text-bg-dark fs-4 rounded-3"
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3776.9615411197415!2d98.97554799999999!3d18.799867199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da3a9a71d80adf%3A0xe41f657fc5052416!2z4Lin4Li04LiX4Lii4Liy4Lil4Lix4Lii4LmA4LiX4LiE4LiZ4Li04LiE4LmA4LiK4Li14Lii4LiH4LmD4Lir4Lih4LmI!5e0!3m2!1sth!2sth!4v1701429207030!5m2!1sth!2sth"
+                  width="100%"
+                  height="450"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
           </div>
@@ -482,6 +431,11 @@
     <!-- foro -->
     <foot-comp></foot-comp>
     <!-- dsl -->
+    <script src="/parallax.min.js"></script>
+    <script>
+      var parallax = new Parallax(".parallax");
+      parallax.init();
+    </script>
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./script.js"></script>
     <script src="./theme.js"></script>
